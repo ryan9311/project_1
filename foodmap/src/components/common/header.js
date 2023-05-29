@@ -1,7 +1,7 @@
 const heaer = () => {
   return (
     <>
-      <img src=""></img>
+      <Image src="Logo.png" />
     </>
   );
 };
