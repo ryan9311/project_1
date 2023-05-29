@@ -102,6 +102,11 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
+emotion@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/emotion/-/emotion-11.0.0.tgz#e33353668e72f0adea1f6fba790dc6c5b05b45d9"
+  integrity sha512-QW3CRqic3aRw1OBOcnvxaHEpCmxtlGwZ5tM9dV5rY3Rn+F41E8EgTPOqJ5VfsqQ5ZXHDs2zSDyUwGI0ZfC2+5A==
+
 follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
