@@ -104,9 +104,10 @@ export const FoodImage = styled.div`
 `
 export const FoodDetail = styled.div`
   border: 1px solid black;
+  border-radius: 15px;
   margin-left: 20px;
   width: 800px;
-  height: 250px;
+  height: 240px;
 `
 export const FoodShopName = styled.p`
   margin: 13px 10px;
@@ -143,10 +144,10 @@ export const FoodImagePlus = styled.div`
   // border-radius: 10px;
   box-sizing: border-box;
   border-radius: 15px;
-  width: 260px;
+  width: 240px;
   height: 240px;
   text-align: center;
-  margin: 10px 20px;
+  margin: 10px 10px;
 `
 
 // 리뷰 및 평점 css
