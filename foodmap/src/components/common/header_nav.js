@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
 const HeaderNav = () => {
   return (
@@ -12,17 +12,18 @@ const HeaderNav = () => {
         </HamNav>
       </Header>
     </>
-  );
-};
+  )
+}
 
-export default HeaderNav;
+export default HeaderNav
 
 export const Header = styled.div`
   width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
+  margin: 0 auto;
+`
 
 export const MiniLogo = styled.div`
   border: 1px solid black;
@@ -31,7 +32,7 @@ export const MiniLogo = styled.div`
   background-image: url(/Logo.png);
   background-size: cover;
   background-position: center;
-`;
+`
 
 export const HamNav = styled.a`
   display: flex;
@@ -39,11 +40,11 @@ export const HamNav = styled.a`
   flex-wrap: wrap;
   width: 50px;
   height: 50px;
-`;
+`
 
 export const HamNavSpan = styled.span`
   height: 4px;
   background-color: blue;
   width: 100%;
   border-radius: 10px;
-`;
+`

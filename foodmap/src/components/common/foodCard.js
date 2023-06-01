@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
 const FoodCard = () => {
   return (
@@ -14,10 +14,10 @@ const FoodCard = () => {
         <MyListIcn>하트</MyListIcn>
       </CardWarp>
     </>
-  );
-};
+  )
+}
 
-export default FoodCard;
+export default FoodCard
 
 export const CardWarp = styled.div`
   position: relative;
@@ -29,7 +29,7 @@ export const CardWarp = styled.div`
   padding: 20px;
   width: 1000px;
   height: 280px;
-`;
+`
 
 export const FoodImg = styled.div`
   height: 240px;
@@ -38,7 +38,7 @@ export const FoodImg = styled.div`
   border: 1px solid black;
   border-radius: 20px;
   background-color: azure;
-`;
+`
 
 export const FoodInfo = styled.div`
   display: flex;
@@ -50,19 +50,19 @@ export const FoodInfo = styled.div`
   height: 240px;
   border-radius: 15px;
   background-color: bisque;
-`;
+`
 
 export const ShopName = styled.p`
   font-size: 20px;
-`;
+`
 
 export const ShopInfo = styled.p`
   font-size: 1em;
-`;
+`
 
 export const MyListIcn = styled.div`
   position: absolute;
   right: 50px;
   top: 40px;
   background-color: red;
-`;
+`
