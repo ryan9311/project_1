@@ -6,6 +6,7 @@ const commentCard = () => {
       <RevWrap>
         <Name>음식점이름</Name>
         <Grade>평점</Grade>
+        <Star>★★★★★</Star>
         <ModifyTag>수정</ModifyTag>
         <CencleTag>취소</CencleTag>
         <Card>
@@ -55,6 +56,12 @@ export const Card = styled.div`
   padding: 20px;
   width: 1000px;
   height: 200px;
+`
+export const Star = styled.div`
+  position: absolute;
+  left: 100px;
+  top: 48px;
+  font-size: 16px;
 `
 
 export const FoodImg = styled.div`
