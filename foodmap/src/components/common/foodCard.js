@@ -28,7 +28,7 @@ const FoodCard = () => {
         </FoodInfo>
         <MyListIcn onClick={handleHeartClick}>
           <Image
-            src={heartClick ? "heart.svg" : "heart-fill.svg"}
+            src={heartClick ? "heart-fill.svg" : "heart.svg"}
             width={"40"}
             height={"40"}
           />
