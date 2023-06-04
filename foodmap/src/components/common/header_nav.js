@@ -15,13 +15,11 @@ const HeaderNav = () => {
           <HamNavSpan></HamNavSpan>
           <HamNavSpan></HamNavSpan>
         </HamNav>
-        {isOpen && (
-          <Menu>
-            <Menus>홈</Menus>
-            <Menus>내 맛집</Menus>
-            <Menus>리뷰 관리</Menus>
-          </Menu>
-        )}
+        <Menu isOpen={isOpen}>
+          <Menus>홈</Menus>
+          <Menus>내 맛집</Menus>
+          <Menus>리뷰 관리</Menus>
+        </Menu>
       </Header>
     </>
   );
@@ -63,16 +61,19 @@ export const HamNavSpan = styled.span`
 
 export const Menu = styled.div`
   background-color: white;
-  position: absolute;
+  position: fixed;
   z-index: 3;
   top: 100px;
-  right: 140px;
+  right: ${(props) => (props.isOpen ? "0" : "-300px")};
   width: 200px;
+  height: 200px;
   padding: 10px;
   border: 1px solid black;
+  transition: right 0.5s ease;
 `;
 
 export const Menus = styled.a`
   display: block;
   margin-bottom: 10px;
+  cursor: pointer;
 `;

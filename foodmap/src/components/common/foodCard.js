@@ -28,6 +28,7 @@ const FoodCard = () => {
         </FoodInfo>
         <MyListIcn onClick={handleHeartClick}>
           <Image
+            className="heartImg"
             src={heartClick ? "heart-fill.svg" : "heart.svg"}
             width={"40"}
             height={"40"}
@@ -87,6 +88,7 @@ export const MyListIcn = styled.div`
   right: 50px;
   top: 40px;
   border: none;
+  cursor: pointer;
 `;
 
 export const ShareBtn = styled.button`
@@ -97,4 +99,5 @@ export const ShareBtn = styled.button`
   height: 50px;
   border-radius: 10px;
   border: 1px solid;
+  cursor: pointer;
 `;
