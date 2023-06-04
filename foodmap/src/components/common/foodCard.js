@@ -1,6 +1,15 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
+import Image from "next/image";
+import { useState } from "react";
 
 const FoodCard = () => {
+  const star = [{}];
+  const [heartClick, setHeartClick] = useState(false);
+
+  const handleHeartClick = () => {
+    setHeartClick(!heartClick);
+  };
+
   return (
     <>
       <CardWarp>
@@ -8,16 +17,29 @@ const FoodCard = () => {
         <FoodInfo>
           <ShopName>음식점 이름 : </ShopName>
           <ShopInfo>음식점 주소 : </ShopInfo>
-          <ShopInfo>가장 높은 평점 : </ShopInfo>
-          <ShopInfo>가장 낮은 평점 : </ShopInfo>
+          <ShopInfo>
+            가장 높은 평점 :{" "}
+            <Image src={"star.svg"} width={"20"} height={"20"} />
+          </ShopInfo>
+          <ShopInfo>
+            가장 낮은 평점 :{" "}
+            <Image src={"star.svg"} width={"20"} height={"20"} />
+          </ShopInfo>
         </FoodInfo>
-        <MyListIcn>하트</MyListIcn>
+        <MyListIcn onClick={handleHeartClick}>
+          <Image
+            src={heartClick ? "heart.svg" : "heart-fill.svg"}
+            width={"40"}
+            height={"40"}
+          />
+        </MyListIcn>
+        <ShareBtn>공유하기</ShareBtn>
       </CardWarp>
     </>
-  )
-}
+  );
+};
 
-export default FoodCard
+export default FoodCard;
 
 export const CardWarp = styled.div`
   position: relative;
@@ -29,7 +51,7 @@ export const CardWarp = styled.div`
   padding: 20px;
   width: 1000px;
   height: 280px;
-`
+`;
 
 export const FoodImg = styled.div`
   height: 240px;
@@ -38,7 +60,7 @@ export const FoodImg = styled.div`
   border: 1px solid black;
   border-radius: 20px;
   background-color: azure;
-`
+`;
 
 export const FoodInfo = styled.div`
   display: flex;
@@ -50,19 +72,29 @@ export const FoodInfo = styled.div`
   height: 240px;
   border-radius: 15px;
   background-color: bisque;
-`
+`;
 
 export const ShopName = styled.p`
   font-size: 20px;
-`
+`;
 
-export const ShopInfo = styled.p`
+export const ShopInfo = styled.div`
   font-size: 1em;
-`
+`;
 
 export const MyListIcn = styled.div`
   position: absolute;
   right: 50px;
   top: 40px;
-  background-color: red;
-`
+  border: none;
+`;
+
+export const ShareBtn = styled.button`
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid;
+`;
