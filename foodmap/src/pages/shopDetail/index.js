@@ -1,10 +1,11 @@
 import HeaderNav from '@/components/common/header_nav'
+import Layout from '@/components/common/layout'
 import styled from '@emotion/styled'
 
 const shopDetailPage = () => {
   return (
     <Container>
-      <HeaderNav></HeaderNav>
+      <Layout></Layout>
       <ListWrap>
         <option>서울 전체</option>
         <option>서울 강남</option>
@@ -16,9 +17,9 @@ const shopDetailPage = () => {
       <FoodTemaWrap>
         <FoodImage>이미지</FoodImage>
         <FoodDetail>
-          <FoodShopName>음식점이름</FoodShopName>
+          <FoodShopName>음식점이름 :</FoodShopName>
           <FoodShopInfo>음식점 주소 :</FoodShopInfo>
-          <FoodShopInfo>가장 높은 평점</FoodShopInfo>
+          <FoodShopInfo>가장 높은 평점 :</FoodShopInfo>
           {/* <div class="rating_box">
             <div class="rating">
               ★★★★★
@@ -26,7 +27,7 @@ const shopDetailPage = () => {
               <input type="range" value="1" step="1" min="0" max="10" />
             </div>
           </div> */}
-          <FoodShopInfo>가장 낮은 평점 </FoodShopInfo>
+          <FoodShopInfo>가장 낮은 평점 : </FoodShopInfo>
           {/* <div class="rating_box">
             <div class="rating">
               ★★★★★
@@ -81,8 +82,10 @@ export const Container = styled.div`
 `
 
 export const ListWrap = styled.select`
-  width: 110px;
-  margin: 5px auto;
+  /* width: 110px;
+  margin: 5px auto; */
+  margin: 10px 0;
+  width: 100px;
 `
 export const FoodTemaWrap = styled.div`
   width: 1000px;
@@ -110,13 +113,13 @@ export const FoodDetail = styled.div`
   height: 240px;
 `
 export const FoodShopName = styled.p`
-  margin: 13px 10px;
-  width: 20;
+  margin-top: 60px;
+  margin-left: 10px;
   font-size: 20px;
 `
 export const FoodShopInfo = styled.p`
   margin: 13px 10px;
-  font-size: 18px;
+  font-size: 15px;
 `
 
 // export const likeBtn = styled.div`
@@ -187,16 +190,26 @@ export const Text = styled.textarea`
   font-size: 18px;
   resize: none;
 `
+// export const Button = styled.button`
+//   display: inline-block;
+//   width: 70px;
+//   height: 30px;
+//   margin-left: 10px;
+//   //background-color: gray;
+//   // padding: 5px;
+//   height: 20px;
+//   font-size: 15px;
+//   text-align: center;
+//   align-items: center;
+//   //margin-right: 10px;
+// `
 export const Button = styled.button`
-  display: inline-block;
-  width: 70px;
-  height: 30px;
-  margin-left: 10px;
-  //background-color: gray;
-  // padding: 5px;
-  height: 20px;
-  font-size: 15px;
-  text-align: center;
+  width: 150px;
+  height: 25px;
+  // border-radius: 15px;
   align-items: center;
-  //margin-right: 10px;
+  border: 1px solid gray;
+  //background-color: pink;
+  font-size: 15px;
+  font-weight: 30px;
 `

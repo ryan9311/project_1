@@ -1,11 +1,12 @@
 import HeaderNav from '@/components/common/header_nav'
+import Layout from '@/components/common/layout'
 import RevWrap from '@/components/common/reviewCard'
 import styled from '@emotion/styled'
 
 const commentPage = () => {
   return (
     <AllWrap>
-      <HeaderNav></HeaderNav>
+      <Layout></Layout>
       <RevWrap></RevWrap>
       <RevWrap></RevWrap>
       <RevWrap></RevWrap>

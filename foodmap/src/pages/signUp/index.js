@@ -51,12 +51,24 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
-  width: 150px;
+  /* width: 150px;
   height: 25px;
   // border-radius: 15px;
   align-items: center;
   border: 1px solid gray;
   //background-color: pink;
   font-size: 15px;
-  font-weight: 30px;
+  font-weight: 30px; */
+  width: 200px;
+  height: 30px;
+  background-color: #3a8ef0;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  color: whitesmoke;
+  border: none;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  cursor: pointer;
 `

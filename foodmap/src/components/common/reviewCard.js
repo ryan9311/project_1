@@ -26,7 +26,7 @@ export const RevWrap = styled.div`
   position: relative;
   border: 1px solid black;
   box-sizing: border-box;
-  border-radius: 10px;
+  //border-radius: 10px;
   margin: 0 auto;
   margin-bottom: 2px;
   display: flex;

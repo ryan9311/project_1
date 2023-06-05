@@ -1,30 +1,29 @@
 import HeaderNav from '@/components/common/header_nav'
+import Layout from '@/components/common/layout'
 import styled from '@emotion/styled'
 
 const commentUpdatedPage = () => {
   return (
-    <>
-      <HeaderNav></HeaderNav>
-      <div>
-        <RevWrap>
-          <Name>음식점이름</Name>
-          <Grade>평점</Grade>
-          <Star>★★★★★</Star>
-          <ModifyTag>수정</ModifyTag>
-          <CencleTag>취소</CencleTag>
-          <Card>
-            <FoodImg>이미지</FoodImg>
-            <FoodImg>이미지</FoodImg>
-            <FoodImg>이미지</FoodImg>
-            <FoodImg>이미지</FoodImg>
-          </Card>
-        </RevWrap>
-        <TextWrap>
-          {/* <h1>댓글</h1> */}
-          <GradeText></GradeText>
-        </TextWrap>
-      </div>
-    </>
+    <div>
+      <Layout></Layout>
+      <RevWrap>
+        <Name>음식점이름</Name>
+        <Grade>평점</Grade>
+        <Star>★★★★★</Star>
+        <ModifyTag>수정</ModifyTag>
+        <CencleTag>취소</CencleTag>
+        <Card>
+          <FoodImg>이미지</FoodImg>
+          <FoodImg>이미지</FoodImg>
+          <FoodImg>이미지</FoodImg>
+          <FoodImg>이미지</FoodImg>
+        </Card>
+      </RevWrap>
+      <TextWrap>
+        {/* <h1>댓글</h1> */}
+        <GradeText></GradeText>
+      </TextWrap>
+    </div>
   )
 }
 export default commentUpdatedPage
@@ -80,7 +79,7 @@ export const FoodImg = styled.div`
   width: 200px;
   text-align: center;
   border: 1px solid black;
-  border-radius: 20px;
+  //border-radius: 20px;
   margin: 10px 13px;
 `
 
