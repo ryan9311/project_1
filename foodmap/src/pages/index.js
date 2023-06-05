@@ -28,6 +28,7 @@ export const BodyContainer = styled.div`
   overflow: hidden;
   display: flex;
   align-items: center;
+  background-color: #fff7f7;
 `;
 
 export const Login = styled.div`
@@ -77,16 +78,19 @@ export const LoginPageBtn = styled.button`
 `;
 
 export const SignUp = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 200px;
-  height: 30px;
+  height: 40px;
   background-color: #3a8ef0;
   border-radius: 15px;
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 20px;
+  text-decoration: none;
   color: whitesmoke;
   border: none;
   margin-bottom: 20px;
-  border: 2px solid black;
   cursor: pointer;
 `;
