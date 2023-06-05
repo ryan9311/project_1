@@ -231,7 +231,11 @@ export const Button = styled.button`
   right: 20px;
   width: 150px;
   height: 50px;
-  border-radius: 10px;
-  border: 1px solid;
+  background-color: #3a8ef0;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  color: whitesmoke;
+  border: none;
   cursor: pointer;
 `;

@@ -46,4 +46,14 @@ export const MyInfoBtn = styled.button`
   width: 1000px;
   height: 50px;
   margin: 10px 0;
+  background-color: #3a8ef0;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: whitesmoke;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
 `;

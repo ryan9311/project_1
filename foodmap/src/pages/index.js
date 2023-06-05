@@ -69,9 +69,9 @@ export const InputBox = styled.input`
 export const LoginPageBtn = styled.button`
   width: 200px;
   height: 40px;
+  margin-bottom: 20px;
   background-color: #3a8ef0;
   border-radius: 15px;
-  margin-bottom: 20px;
   font-weight: bold;
   font-size: 20px;
   color: whitesmoke;

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 const FoodCard = () => {
-  const star = [{}];
   const [heartClick, setHeartClick] = useState(false);
 
   const handleHeartClick = () => {
@@ -18,10 +17,17 @@ const FoodCard = () => {
           <ShopName>음식점 이름 : </ShopName>
           <ShopInfo>음식점 주소 : </ShopInfo>
           <ShopInfo>
-            높은 평점 : <Image src={"star.svg"} width={"20"} height={"20"} />
+            높은 평점 :
+            <Image src={"star.svg"} width={"20"} height={"20"} />
+            <Image src={"star-fill.svg"} width={"20"} height={"20"} />
+            <Image src={"star-half.svg"} width={"20"} height={"20"} />
           </ShopInfo>
           <ShopInfo>
-            낮은 평점 : <Image src={"star.svg"} width={"20"} height={"20"} />
+            낮은 평점 :
+            <Image src={"star.svg"} width={"20"} height={"20"} />
+            <Image src={"star.svg"} width={"20"} height={"20"} />
+            <Image src={"star-fill.svg"} width={"20"} height={"20"} />
+            <Image src={"star-half.svg"} width={"20"} height={"20"} />
           </ShopInfo>
         </FoodInfo>
         <MyListIcn onClick={handleHeartClick}>
@@ -97,7 +103,11 @@ export const ShareBtn = styled.button`
   right: 50px;
   width: 150px;
   height: 50px;
-  border-radius: 10px;
-  border: 1px solid;
+  background-color: #3a8ef0;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  color: whitesmoke;
+  border: none;
   cursor: pointer;
 `;
