@@ -3,10 +3,11 @@ import HeaderNav from "@/components/common/header_nav";
 import Layout from "@/components/common/layout";
 import styled from "@emotion/styled";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { BodyContainer } from "..";
 
 const MyinfoPage = () => {
   return (
-    <>
+    <BodyContainer>
       <Layout></Layout>
       <LoadScript
         googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
@@ -20,7 +21,7 @@ const MyinfoPage = () => {
         </MyMap>
       </LoadScript>
       <FoodCard></FoodCard>
-    </>
+    </BodyContainer>
   );
 };
 export default MyinfoPage;
