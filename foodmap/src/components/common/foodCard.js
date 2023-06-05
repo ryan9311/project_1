@@ -46,6 +46,7 @@ export const CardWarp = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
   display: flex;
+  flex-direction: row;
   align-items: center;
   padding: 20px;
   width: 1000px;

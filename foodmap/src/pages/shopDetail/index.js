@@ -1,6 +1,7 @@
-import HeaderNav from '@/components/common/header_nav'
-import Layout from '@/components/common/layout'
-import styled from '@emotion/styled'
+import { ShareBtn } from "@/components/common/foodCard";
+import HeaderNav from "@/components/common/header_nav";
+import Layout from "@/components/common/layout";
+import styled from "@emotion/styled";
 
 const shopDetailPage = () => {
   return (
@@ -62,31 +63,42 @@ const shopDetailPage = () => {
           </div> */}
           <TextAreaWrap>
             <Text></Text>
+            <Button>확인</Button>
           </TextAreaWrap>
-          <Button>확인</Button>
         </FoodDetail>
       </FoodTemaWrap>
     </Container>
-  )
-}
+  );
+};
 
-export default shopDetailPage
+export default shopDetailPage;
 
 export const Container = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   width: 1000px;
   margin: 0 auto;
+  box-sizing: border-box; */
+
+  width: 100%;
+  height: 100vh;
   box-sizing: border-box;
-`
+  margin: 0 auto;
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff7f7;
+`;
 
 export const ListWrap = styled.select`
   /* width: 110px;
   margin: 5px auto; */
   margin: 10px 0;
   width: 100px;
-`
+`;
 export const FoodTemaWrap = styled.div`
   width: 1000px;
   height: 280px;
@@ -96,7 +108,7 @@ export const FoodTemaWrap = styled.div`
   display: flex;
   margin: 0 auto;
   padding: 15px;
-`
+`;
 export const FoodImage = styled.div`
   border: 1px solid black;
   border-radius: 15px;
@@ -104,23 +116,24 @@ export const FoodImage = styled.div`
   width: 240px;
   height: 240px;
   text-align: center;
-`
+`;
 export const FoodDetail = styled.div`
+  position: relative;
   border: 1px solid black;
   border-radius: 15px;
   margin-left: 20px;
   width: 800px;
   height: 240px;
-`
+`;
 export const FoodShopName = styled.p`
   margin-top: 60px;
   margin-left: 10px;
   font-size: 20px;
-`
+`;
 export const FoodShopInfo = styled.p`
   margin: 13px 10px;
   font-size: 15px;
-`
+`;
 
 // export const likeBtn = styled.div`
 //   position: absolute;
@@ -130,7 +143,7 @@ export const FoodShopInfo = styled.p`
 
 export const Rating_box = styled.div`
   margin: 13px 10px;
-`
+`;
 export const FoodImageWrap = styled.div`
   width: 1000px;
   height: 300px;
@@ -141,7 +154,7 @@ export const FoodImageWrap = styled.div`
   margin: 0 auto;
   padding: 18px;
   //background-color: red;
-`
+`;
 export const FoodImagePlus = styled.div`
   border: 1px solid black;
   // border-radius: 10px;
@@ -151,7 +164,7 @@ export const FoodImagePlus = styled.div`
   height: 240px;
   text-align: center;
   margin: 10px 10px;
-`
+`;
 
 // 리뷰 및 평점 css
 export const Wrap = styled.div`
@@ -164,23 +177,23 @@ export const Wrap = styled.div`
   margin: 0 auto;
   padding: 18px;
   // background-color: orange;
-`
+`;
 export const H1Wrap = styled.div`
   width: 1000px;
   margin: 0 auto;
   text-align: center;
   color: gray;
   border: 1px solid black;
-`
+`;
 
 export const theReviewWrap = styled.div`
   border: 1px solid black;
   justify-content: space-between;
-`
+`;
 
 export const TextAreaWrap = styled.div`
   padding-top: 10px;
-`
+`;
 
 export const Text = styled.textarea`
   width: 95%;
@@ -189,7 +202,7 @@ export const Text = styled.textarea`
   margin: 10px;
   font-size: 18px;
   resize: none;
-`
+`;
 // export const Button = styled.button`
 //   display: inline-block;
 //   width: 70px;
@@ -204,12 +217,21 @@ export const Text = styled.textarea`
 //   //margin-right: 10px;
 // `
 export const Button = styled.button`
-  width: 150px;
+  /* width: 150px;
   height: 25px;
   // border-radius: 15px;
   align-items: center;
   border: 1px solid gray;
   //background-color: pink;
   font-size: 15px;
-  font-weight: 30px;
-`
+  font-weight: 30px; */
+
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid;
+  cursor: pointer;
+`;

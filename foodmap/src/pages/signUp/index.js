@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import Image from 'next/image'
-import { Logo } from '..'
+import styled from "@emotion/styled";
+import Image from "next/image";
+import { Logo } from "..";
 
 const signupPage = () => {
   return (
@@ -24,31 +24,43 @@ const signupPage = () => {
         <Button>가입하기</Button>
       </div>
     </SignupWrap>
-  )
-}
+  );
+};
 
-export default signupPage
+export default signupPage;
 export const SignupWrap = styled.div`
-  //display: flex;
-  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: fixed;
+  overflow: hidden;
+  display: flex;
   align-items: center;
-  //height: 100vh;
-  margin-top: 20vh;
-  text-align: center;
-`
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff7f7;
+`;
 export const InputWrap = styled.div`
   // height: 20px;
-  margin: 5px;
-`
+  margin: 0px;
+`;
 export const Input = styled.input`
+  display: flex;
   align-items: center;
-  //width: 20%;
-  margin: 3px;
-  font-size: 20px;
   text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 400px;
   height: 30px;
-`
+  font-size: 1rem;
+  background: rgba(250, 250, 250);
+  text-align: left;
+  padding: 9px 0 7px 8px;
+  border: 0.1px solid gray;
+  border-radius: 5px;
+`;
 
 export const Button = styled.button`
   /* width: 150px;
@@ -59,16 +71,21 @@ export const Button = styled.button`
   //background-color: pink;
   font-size: 15px;
   font-weight: 30px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   width: 200px;
-  height: 30px;
+  height: 40px;
   background-color: #3a8ef0;
   border-radius: 15px;
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 20px;
+  text-decoration: none;
   color: whitesmoke;
   border: none;
   margin-bottom: 20px;
-  border: 2px solid black;
+  margin-top: 20px;
   cursor: pointer;
-`
+`;

@@ -27,6 +27,8 @@ export const BodyContainer = styled.div`
   position: fixed;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #fff7f7;
 `;

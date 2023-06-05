@@ -1,10 +1,11 @@
-import HeaderNav from '@/components/common/header_nav'
-import Layout from '@/components/common/layout'
-import styled from '@emotion/styled'
+import HeaderNav from "@/components/common/header_nav";
+import Layout from "@/components/common/layout";
+import { BodyContainer } from "@/pages";
+import styled from "@emotion/styled";
 
 const commentUpdatedPage = () => {
   return (
-    <div>
+    <BodyContainer>
       <Layout></Layout>
       <RevWrap>
         <Name>음식점이름</Name>
@@ -23,10 +24,10 @@ const commentUpdatedPage = () => {
         {/* <h1>댓글</h1> */}
         <GradeText></GradeText>
       </TextWrap>
-    </div>
-  )
-}
-export default commentUpdatedPage
+    </BodyContainer>
+  );
+};
+export default commentUpdatedPage;
 
 export const RevWrap = styled.div`
   position: relative;
@@ -39,14 +40,14 @@ export const RevWrap = styled.div`
   padding: 20px;
   width: 1000px;
   height: 350px;
-`
+`;
 export const Name = styled.div`
   position: absolute;
   left: 50px;
   top: 5px;
   font-size: 40px;
   margin: 4px 4px;
-`
+`;
 
 export const Grade = styled.div`
   position: absolute;
@@ -54,7 +55,7 @@ export const Grade = styled.div`
   top: 60px;
   font-size: 20px;
   margin: 4px 4px;
-`
+`;
 
 export const Card = styled.div`
   position: relative;
@@ -65,14 +66,14 @@ export const Card = styled.div`
   width: 1000px;
   height: 200px;
   // border: 1px solid black;
-`
+`;
 export const Star = styled.div`
   position: absolute;
   left: 100px;
   top: 58px;
   font-size: 20px;
   margin: 4px 4px;
-`
+`;
 
 export const FoodImg = styled.div`
   height: 200px;
@@ -81,7 +82,7 @@ export const FoodImg = styled.div`
   border: 1px solid black;
   //border-radius: 20px;
   margin: 10px 13px;
-`
+`;
 
 export const TextWrap = styled.div`
   display: flex;
@@ -94,7 +95,7 @@ export const TextWrap = styled.div`
   height: 650px;
   // padding: 20px;
   //  border-radius: 15px;
-`
+`;
 
 export const commentText = styled.h1`
   position: absolute;
@@ -102,7 +103,7 @@ export const commentText = styled.h1`
   top: 5px;
   font-size: 40px;
   margin: 4px 4px;
-`
+`;
 export const GradeText = styled.textarea`
   width: 90%;
   height: 500px;
@@ -111,15 +112,15 @@ export const GradeText = styled.textarea`
   margin-left: 37px;
   font-size: 18px;
   resize: none;
-`
+`;
 
 export const ModifyTag = styled.a`
   position: absolute;
   right: 90px;
   top: 20px;
-`
+`;
 export const CencleTag = styled.a`
   position: absolute;
   right: 50px;
   top: 20px;
-`
+`;

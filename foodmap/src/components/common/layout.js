@@ -21,4 +21,5 @@ export const BodyLayout = styled.div`
   width: 1000px;
   margin: 0 auto;
   box-sizing: border-box;
+  background-color: #fff7f7;
 `;

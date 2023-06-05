@@ -1,6 +1,6 @@
-import FoodCard from '@/components/common/foodCard'
-import HeaderNav from '@/components/common/header_nav'
-import styled from '@emotion/styled'
+import FoodCard from "@/components/common/foodCard";
+import HeaderNav from "@/components/common/header_nav";
+import styled from "@emotion/styled";
 
 const mainPage = () => {
   return (
@@ -19,27 +19,31 @@ const mainPage = () => {
       <FoodCard></FoodCard>
       <MyInfoBtn>내 맛집</MyInfoBtn>
     </Container>
-  )
-}
+  );
+};
 
-export default mainPage
+export default mainPage;
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: fixed;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 1000px;
-  margin: 0 auto;
-  box-sizing: border-box;
-`
+  align-items: center;
+  background-color: #fff7f7;
+`;
 
 export const AreaList = styled.select`
   margin: 10px 0;
   width: 100px;
-`
+`;
 
 export const MyInfoBtn = styled.button`
   width: 1000px;
   height: 50px;
   margin: 10px 0;
-`
+`;
