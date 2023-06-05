@@ -18,12 +18,10 @@ const FoodCard = () => {
           <ShopName>음식점 이름 : </ShopName>
           <ShopInfo>음식점 주소 : </ShopInfo>
           <ShopInfo>
-            가장 높은 평점 :{" "}
-            <Image src={"star.svg"} width={"20"} height={"20"} />
+            높은 평점 : <Image src={"star.svg"} width={"20"} height={"20"} />
           </ShopInfo>
           <ShopInfo>
-            가장 낮은 평점 :{" "}
-            <Image src={"star.svg"} width={"20"} height={"20"} />
+            낮은 평점 : <Image src={"star.svg"} width={"20"} height={"20"} />
           </ShopInfo>
         </FoodInfo>
         <MyListIcn onClick={handleHeartClick}>
@@ -67,6 +65,7 @@ export const FoodInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 20px;
   width: 760px;
   padding-left: 15px;
   border: 1px solid black;
