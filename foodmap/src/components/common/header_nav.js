@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 import { useState } from "react";
 
 const HeaderNav = () => {
@@ -11,15 +12,13 @@ const HeaderNav = () => {
       <Header>
         <MiniLogo></MiniLogo>
         <HamNav onClick={toggleMenu} isOpen={isOpen}>
-          <HamNavSpan></HamNavSpan>
-          <HamNavSpan></HamNavSpan>
-          <HamNavSpan></HamNavSpan>
+          <Image src={"list.svg"} width={"50"} height={"50"} />
+          <Menu isOpen={isOpen}>
+            <Menus>Home</Menus>
+            <Menus>내 맛집</Menus>
+            <Menus>리뷰 관리</Menus>
+          </Menu>
         </HamNav>
-        <Menu isOpen={isOpen}>
-          <Menus>홈</Menus>
-          <Menus>내 맛집</Menus>
-          <Menus>리뷰 관리</Menus>
-        </Menu>
       </Header>
     </>
   );
@@ -44,32 +43,27 @@ export const MiniLogo = styled.div`
   background-position: center;
 `;
 
-export const HamNav = styled.a`
+export const HamNav = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 50px;
   height: 50px;
-`;
-
-export const HamNavSpan = styled.span`
-  height: 4px;
-  background-color: blue;
-  width: 100%;
-  border-radius: 10px;
+  overflow: ${(props) => (props.isOpen ? "visible" : "hidden")};
 `;
 
 export const Menu = styled.div`
+  position: absolute;
   background-color: white;
-  position: fixed;
   z-index: 3;
   top: 100px;
-  right: ${(props) => (props.isOpen ? "0" : "-300px")};
+  right: ${(props) => (props.isOpen ? "0px" : "-70px")};
   width: 200px;
   height: 200px;
   padding: 10px;
   border: 1px solid black;
-  transition: right 0.5s ease;
+  transition: right 0.3s ease;
 `;
 
 export const Menus = styled.a`
