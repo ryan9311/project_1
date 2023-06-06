@@ -2,13 +2,19 @@ const { Global } = require("@emotion/react");
 const { css } = require("@emotion/react");
 
 const style = css`
-  @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap");
+  @font-face {
+    font-family: "omyu_pretty";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
 
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Nanum Gothic Coding", monospace;
+    font-family: "omyu_pretty";
   }
 
   input:focus {

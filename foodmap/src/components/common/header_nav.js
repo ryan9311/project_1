@@ -27,6 +27,7 @@ const HeaderNav = () => {
 export default HeaderNav;
 
 export const Header = styled.div`
+  z-index: 5;
   width: 1000px;
   display: flex;
   justify-content: space-between;
