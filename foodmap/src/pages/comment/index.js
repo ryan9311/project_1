@@ -1,5 +1,4 @@
 import HeaderNav from "@/components/common/header_nav";
-import Layout from "@/components/common/layout";
 import RevWrap from "@/components/common/reviewCard";
 import styled from "@emotion/styled";
 import { Container } from "../main";
@@ -13,10 +12,10 @@ const commentPage = () => {
       <RevWrap></RevWrap>
       <RevWrap></RevWrap>
     </Container>
-  )
-}
+  );
+};
 
-export default commentPage
+export default commentPage;
 
 export const AllWrap = styled.div`
   width: 100%;
@@ -29,4 +28,4 @@ export const AllWrap = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #fff7f7;
-`
+`;
