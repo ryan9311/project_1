@@ -1,11 +1,11 @@
 import HeaderNav from "@/components/common/header_nav";
 import Layout from "@/components/common/layout";
-import { BodyContainer } from "@/pages";
+import { Container } from "@/pages/main";
 import styled from "@emotion/styled";
 
 const commentUpdatedPage = () => {
   return (
-    <BodyContainer>
+    <Container>
       <Layout></Layout>
       <RevWrap>
         <Name>음식점이름</Name>
@@ -24,7 +24,7 @@ const commentUpdatedPage = () => {
         {/* <h1>댓글</h1> */}
         <GradeText></GradeText>
       </TextWrap>
-    </BodyContainer>
+    </Container>
   );
 };
 export default commentUpdatedPage;
