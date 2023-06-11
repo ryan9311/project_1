@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
-import { Logo } from "..";
+import { BodyContainer, Logo } from "..";
 
 const signupPage = () => {
   return (
