@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { Route } from "react-router-dom";
+import styled from '@emotion/styled'
+import { Route } from 'react-router-dom'
 
 const HomeLoginPage = () => {
   return (
@@ -9,17 +9,17 @@ const HomeLoginPage = () => {
           <Logo></Logo>
           <InputBox type="text" name="id" placeholder="ID를 입력해주세요" />
           <InputBox type="password" name="pw" placeholder="PW를 입력해주세요" />
-          <LoginPageBtn onClick={() => alert("로그인 성공!")}>
+          <LoginPageBtn onClick={() => alert('로그인 성공!')}>
             로그인
           </LoginPageBtn>
           <SignUp>SignUp</SignUp>
         </Login>
       </BodyContainer>
     </>
-  );
-};
+  )
+}
 
-export default HomeLoginPage;
+export default HomeLoginPage
 
 export const BodyContainer = styled.div`
   width: 100%;
@@ -33,7 +33,7 @@ export const BodyContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff7f7;
-`;
+`
 
 export const Login = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ export const Login = styled.div`
   align-items: center;
   text-align: center;
   margin: 0 auto;
-`;
+`
 
 export const Logo = styled.div`
   background-image: url(/Logo.png);
@@ -49,7 +49,7 @@ export const Logo = styled.div`
   margin: 0 auto;
   width: 400px;
   height: 400px;
-`;
+`
 
 export const InputBox = styled.input`
   display: flex;
@@ -66,7 +66,7 @@ export const InputBox = styled.input`
   padding: 9px 0 7px 8px;
   border: 0.1px solid gray;
   border-radius: 5px;
-`;
+`
 
 export const LoginPageBtn = styled.button`
   width: 200px;
@@ -79,7 +79,7 @@ export const LoginPageBtn = styled.button`
   color: whitesmoke;
   border: none;
   cursor: pointer;
-`;
+`
 
 export const SignUp = styled.a`
   display: flex;
@@ -97,4 +97,4 @@ export const SignUp = styled.a`
   border: none;
   margin-bottom: 20px;
   cursor: pointer;
-`;
+`
