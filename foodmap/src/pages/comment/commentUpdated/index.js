@@ -1,12 +1,11 @@
 import HeaderNav from "@/components/common/header_nav";
-import Layout from "@/components/common/layout";
 import { Container } from "@/pages/main";
 import styled from "@emotion/styled";
 
 const commentUpdatedPage = () => {
   return (
     <Container>
-      <Layout></Layout>
+      <HeaderNav></HeaderNav>
       <RevWrap>
         <Name>음식점이름</Name>
         <Grade>평점</Grade>

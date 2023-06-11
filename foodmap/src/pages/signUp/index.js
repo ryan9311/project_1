@@ -4,7 +4,7 @@ import { Logo } from "..";
 
 const signupPage = () => {
   return (
-    <SignupWrap>
+    <BodyContainer>
       <div>
         <Logo></Logo>
       </div>
@@ -23,7 +23,7 @@ const signupPage = () => {
         </div>
         <Button>가입하기</Button>
       </div>
-    </SignupWrap>
+    </BodyContainer>
   );
 };
 
