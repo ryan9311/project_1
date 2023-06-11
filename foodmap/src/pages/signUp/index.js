@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import Image from "next/image";
-import { Logo } from "..";
+import styled from '@emotion/styled'
+import Image from 'next/image'
+import { Logo } from '..'
 
 const signupPage = () => {
   return (
@@ -24,10 +24,10 @@ const signupPage = () => {
         <Button>가입하기</Button>
       </div>
     </SignupWrap>
-  );
-};
+  )
+}
 
-export default signupPage;
+export default signupPage
 export const SignupWrap = styled.div`
   width: 100%;
   height: 100vh;
@@ -40,11 +40,11 @@ export const SignupWrap = styled.div`
   justify-content: center;
   flex-direction: column;
   background-color: #fff7f7;
-`;
+`
 export const InputWrap = styled.div`
   // height: 20px;
   margin: 0px;
-`;
+`
 export const Input = styled.input`
   display: flex;
   align-items: center;
@@ -60,17 +60,9 @@ export const Input = styled.input`
   padding: 9px 0 7px 8px;
   border: 0.1px solid gray;
   border-radius: 5px;
-`;
+`
 
 export const Button = styled.button`
-  /* width: 150px;
-  height: 25px;
-  // border-radius: 15px;
-  align-items: center;
-  border: 1px solid gray;
-  //background-color: pink;
-  font-size: 15px;
-  font-weight: 30px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,4 +80,4 @@ export const Button = styled.button`
   margin-bottom: 20px;
   margin-top: 20px;
   cursor: pointer;
-`;
+`
