@@ -4,11 +4,12 @@ import styled from "@emotion/styled";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 import { Container } from "../main";
+import HeaderNav from "@/components/common/header_nav";
 
 const MyinfoPage = () => {
   return (
     <Container>
-      <Layout></Layout>
+      <HeaderNav></HeaderNav>
       <LoadScript
         googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
       >

@@ -2,16 +2,17 @@ import HeaderNav from "@/components/common/header_nav";
 import Layout from "@/components/common/layout";
 import RevWrap from "@/components/common/reviewCard";
 import styled from "@emotion/styled";
+import { Container } from "../main";
 
 const commentPage = () => {
   return (
-    <AllWrap>
-      <Layout></Layout>
+    <Container>
+      <HeaderNav></HeaderNav>
       <RevWrap></RevWrap>
       <RevWrap></RevWrap>
       <RevWrap></RevWrap>
       <RevWrap></RevWrap>
-    </AllWrap>
+    </Container>
   );
 };
 

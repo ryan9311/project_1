@@ -2,11 +2,12 @@ import { ShareBtn } from "@/components/common/foodCard";
 import HeaderNav from "@/components/common/header_nav";
 import Layout from "@/components/common/layout";
 import styled from "@emotion/styled";
+import { Container } from "../main";
 
 const shopDetailPage = () => {
   return (
     <Container>
-      <Layout></Layout>
+      <HeaderNav></HeaderNav>
       <ListWrap>
         <option>서울 전체</option>
         <option>서울 강남</option>
@@ -73,25 +74,25 @@ const shopDetailPage = () => {
 
 export default shopDetailPage;
 
-export const Container = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 1000px;
-  margin: 0 auto;
-  box-sizing: border-box; */
+// export const Container = styled.div`
+//   /* display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   width: 1000px;
+//   margin: 0 auto;
+//   box-sizing: border-box; */
 
-  width: 100%;
-  height: 100vh;
-  box-sizing: border-box;
-  margin: 0 auto;
-  position: fixed;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff7f7;
-`;
+//   width: 100%;
+//   height: 100vh;
+//   box-sizing: border-box;
+//   margin: 0 auto;
+//   position: fixed;
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   background-color: #fff7f7;
+// `;
 
 export const ListWrap = styled.select`
   /* width: 110px;
