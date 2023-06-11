@@ -3,6 +3,7 @@ import HeaderNav from "@/components/common/header_nav";
 import Layout from "@/components/common/layout";
 import styled from "@emotion/styled";
 import { Container } from "../main";
+import { BodyContainer } from "..";
 
 const shopDetailPage = () => {
   return (
