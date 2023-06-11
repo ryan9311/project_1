@@ -12,7 +12,7 @@ const HeaderNav = () => {
       <Header>
         <MiniLogo></MiniLogo>
         <HamNav onClick={toggleMenu} isOpen={isOpen}>
-          <Image src={"list.svg"} width={"50"} height={"50"} />
+          <Image src={"../list.svg"} width={"50"} height={"50"} />
           <Menu isOpen={isOpen}>
             <Menus>Home</Menus>
             <Menus>내 맛집</Menus>
