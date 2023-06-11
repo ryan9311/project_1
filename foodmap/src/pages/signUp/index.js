@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import Image from "next/image";
-import { Logo } from "..";
+import styled from '@emotion/styled'
+import Image from 'next/image'
+import { Logo } from '..'
 
 const signupPage = () => {
   return (
@@ -23,9 +23,9 @@ const signupPage = () => {
         </div>
         <Button>가입하기</Button>
       </div>
-    </SignupWrap>
-  );
-};
+    </BodyContainer>
+  )
+}
 
 export default signupPage
 export const SignupWrap = styled.div`
