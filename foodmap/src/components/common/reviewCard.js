@@ -1,12 +1,17 @@
 import styled from '@emotion/styled'
+import Image from 'next/image'
 
 const commentCard = () => {
   return (
     <>
       <RevWrap>
         <Name>음식점이름</Name>
-        <Grade>평점</Grade>
-        <Star>★★★★★</Star>
+        <Grade>
+          평점:
+          <Image src={'star.svg'} width={'15'} height={'15'} />
+          <Image src={'star-fill.svg'} width={'15'} height={'15'} />
+          <Image src={'star-half.svg'} width={'15'} height={'15'} />
+        </Grade>
         <ModifyTag>수정</ModifyTag>
         <CencleTag>취소</CencleTag>
         <Card>
