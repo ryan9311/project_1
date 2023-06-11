@@ -1,7 +1,8 @@
-import { ShareBtn } from '@/components/common/foodCard'
-import HeaderNav from '@/components/common/header_nav'
-import styled from '@emotion/styled'
-import { Container } from '../main'
+import { ShareBtn } from "@/components/common/foodCard";
+import HeaderNav from "@/components/common/header_nav";
+import Layout from "@/components/common/layout";
+import styled from "@emotion/styled";
+import { Container } from "../main";
 
 const shopDetailPage = () => {
   return (

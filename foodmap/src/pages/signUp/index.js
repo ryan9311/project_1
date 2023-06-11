@@ -4,7 +4,7 @@ import { Logo } from '..'
 
 const signupPage = () => {
   return (
-    <SignupWrap>
+    <BodyContainer>
       <div>
         <Logo></Logo>
       </div>
@@ -24,8 +24,8 @@ const signupPage = () => {
         <Button>가입하기</Button>
       </div>
     </SignupWrap>
-  )
-}
+  );
+};
 
 export default signupPage
 export const SignupWrap = styled.div`

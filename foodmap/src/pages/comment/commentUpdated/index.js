@@ -1,6 +1,7 @@
-import HeaderNav from '@/components/common/header_nav'
-import { Container } from '@/pages/main'
-import styled from '@emotion/styled'
+import HeaderNav from "@/components/common/header_nav";
+import Layout from "@/components/common/layout";
+import { Container } from "@/pages/main";
+import styled from "@emotion/styled";
 
 const commentUpdatedPage = () => {
   return (

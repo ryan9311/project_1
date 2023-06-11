@@ -1,7 +1,8 @@
-import HeaderNav from '@/components/common/header_nav'
-import RevWrap from '@/components/common/reviewCard'
-import styled from '@emotion/styled'
-import { Container } from '../main'
+import HeaderNav from "@/components/common/header_nav";
+import Layout from "@/components/common/layout";
+import RevWrap from "@/components/common/reviewCard";
+import styled from "@emotion/styled";
+import { Container } from "../main";
 
 const commentPage = () => {
   return (
