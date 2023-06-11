@@ -9,15 +9,15 @@ const HomeLoginPage = () => {
           <Logo></Logo>
           <InputBox type="text" name="id" placeholder="ID를 입력해주세요" />
           <InputBox type="password" name="pw" placeholder="PW를 입력해주세요" />
-          <LoginPageBtn onClick={() => alert('로그인 성공!')}>
+          <LoginPageBtn onClick={() => alert("로그인 성공!")}>
             로그인
           </LoginPageBtn>
           <SignUp>SignUp</SignUp>
         </Login>
       </BodyContainer>
     </>
-  )
-}
+  );
+};
 
 export default HomeLoginPage
 

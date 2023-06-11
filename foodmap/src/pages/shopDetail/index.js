@@ -1,6 +1,5 @@
 import { ShareBtn } from "@/components/common/foodCard";
 import HeaderNav from "@/components/common/header_nav";
-import Layout from "@/components/common/layout";
 import styled from "@emotion/styled";
 import { Container } from "../main";
 
@@ -55,15 +54,15 @@ const shopDetailPage = () => {
         </FoodDetail>
       </FoodTemaWrap>
     </Container>
-  )
-}
+  );
+};
 
-export default shopDetailPage
+export default shopDetailPage;
 
 export const ListWrap = styled.select`
   margin: 10px 0;
   width: 100px;
-`
+`;
 export const FoodTemaWrap = styled.div`
   width: 1000px;
   height: 280px;
@@ -72,7 +71,7 @@ export const FoodTemaWrap = styled.div`
   display: flex;
   margin: 0 auto;
   padding: 15px;
-`
+`;
 export const FoodImage = styled.div`
   border: 1px solid black;
   border-radius: 15px;
@@ -80,7 +79,7 @@ export const FoodImage = styled.div`
   width: 240px;
   height: 240px;
   text-align: center;
-`
+`;
 export const FoodDetail = styled.div`
   position: relative;
   border: 1px solid black;
@@ -88,20 +87,20 @@ export const FoodDetail = styled.div`
   margin-left: 20px;
   width: 800px;
   height: 240px;
-`
+`;
 export const FoodShopName = styled.p`
   margin-top: 60px;
   margin-left: 10px;
   font-size: 20px;
-`
+`;
 export const FoodShopInfo = styled.p`
   margin: 13px 10px;
   font-size: 15px;
-`
+`;
 
 export const Rating_box = styled.div`
   margin: 13px 10px;
-`
+`;
 export const FoodImageWrap = styled.div`
   width: 1000px;
   height: 300px;
@@ -110,7 +109,7 @@ export const FoodImageWrap = styled.div`
   display: flex;
   margin: 0 auto;
   padding: 18px;
-`
+`;
 export const FoodImagePlus = styled.div`
   border: 1px solid black;
   box-sizing: border-box;
@@ -119,7 +118,7 @@ export const FoodImagePlus = styled.div`
   height: 240px;
   text-align: center;
   margin: 10px 10px;
-`
+`;
 
 // 리뷰 및 평점 css
 export const Wrap = styled.div`
@@ -130,23 +129,23 @@ export const Wrap = styled.div`
   display: flex;
   margin: 0 auto;
   padding: 18px;
-`
+`;
 export const H1Wrap = styled.div`
   width: 1000px;
   margin: 0 auto;
   text-align: center;
   color: gray;
   border: 1px solid black;
-`
+`;
 
 export const theReviewWrap = styled.div`
   border: 1px solid black;
   justify-content: space-between;
-`
+`;
 
 export const TextAreaWrap = styled.div`
   padding-top: 10px;
-`
+`;
 
 export const Text = styled.textarea`
   width: 95%;
@@ -155,7 +154,7 @@ export const Text = styled.textarea`
   margin: 10px;
   font-size: 18px;
   resize: none;
-`
+`;
 
 export const Button = styled.button`
   position: absolute;
@@ -170,4 +169,4 @@ export const Button = styled.button`
   color: whitesmoke;
   border: none;
   cursor: pointer;
-`
+`;
