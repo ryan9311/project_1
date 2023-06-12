@@ -38,6 +38,7 @@ const HomeLoginPage = () => {
       } finally {
         if (conn !== null) conn.release();
       }
+      return;
     }
   };
 
