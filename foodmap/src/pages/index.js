@@ -1,46 +1,45 @@
 import styled from "@emotion/styled";
-import pool from "../../db";
 
 const HomeLoginPage = () => {
-  const handler = async (req, res) => {
-    if (req.method === "POST") {
-      let { userId, userPw } = req.body;
-      let check = null;
-      try {
-        check = await pool.getConnection();
-        let [result] = await check.query(
-          "SELECT * FROM tbl_users WHERE userId =?",
-          userId
-        );
+  // const handler = async (req, res) => {
+  //   if (req.method === "POST") {
+  //     let { userId, userPw } = req.body;
+  //     let check = null;
+  //     try {
+  //       check = await pool.getConnection();
+  //       let [result] = await check.query(
+  //         "SELECT * FROM tbl_users WHERE userId =?",
+  //         userId
+  //       );
 
-        if (result.length === 0) {
-          res
-            .status(401)
-            .json({ message: "아이디 또는 비밀번호를 다시 확인해 주세요." });
-          return;
-        }
-        let passwordchack = bcrypt.compareSync(userPw, result[0].pw);
-        if (!passwordchack) {
-          res
-            .status(401)
-            .json({ message: "아이디 또는 비밀번호를 다시 확인해 주세요." });
-          return;
-        }
+  //       if (result.length === 0) {
+  //         res
+  //           .status(401)
+  //           .json({ message: "아이디 또는 비밀번호를 다시 확인해 주세요." });
+  //         return;
+  //       }
+  //       let passwordchack = bcrypt.compareSync(userPw, result[0].pw);
+  //       if (!passwordchack) {
+  //         res
+  //           .status(401)
+  //           .json({ message: "아이디 또는 비밀번호를 다시 확인해 주세요." });
+  //         return;
+  //       }
 
-        let accessToken = jwt.sign(
-          { userId: result[0].userId, nickName: result[0].nickName },
-          process.env.JWT_SECRET,
-          { expiresIn: "1h" }
-        );
-        res.status(200), json({ message: "로그인 성공!", accessToken });
-      } catch (err) {
-        res.status(500).json({ message: "서버오류 발생!" });
-      } finally {
-        if (conn !== null) conn.release();
-      }
-      return;
-    }
-  };
+  //       let accessToken = jwt.sign(
+  //         { userId: result[0].userId, nickName: result[0].nickName },
+  //         process.env.JWT_SECRET,
+  //         { expiresIn: "1h" }
+  //       );
+  //       res.status(200), json({ message: "로그인 성공!", accessToken });
+  //     } catch (err) {
+  //       res.status(500).json({ message: "서버오류 발생!" });
+  //     } finally {
+  //       if (conn !== null) conn.release();
+  //     }
+  //     return;
+  //   }
+  // };
 
   return (
     <>
@@ -49,9 +48,7 @@ const HomeLoginPage = () => {
           <Logo></Logo>
           <InputBox type="text" name="id" placeholder="ID를 입력해주세요" />
           <InputBox type="password" name="pw" placeholder="PW를 입력해주세요" />
-          <LoginPageBtn onClick={() => alert("로그인 성공!")}>
-            로그인
-          </LoginPageBtn>
+          <LoginPageBtn onClick={() => {}}>로그인</LoginPageBtn>
           <SignUp>SignUp</SignUp>
         </Login>
       </BodyContainer>
