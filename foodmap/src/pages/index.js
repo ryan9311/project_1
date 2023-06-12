@@ -4,13 +4,13 @@ import pool from "../../db";
 const HomeLoginPage = () => {
   const handler = async (req, res) => {
     if (req.method === "POST") {
-      let { id, pw } = req.body;
+      let { userId, userPw } = req.body;
       let check = null;
       try {
         check = await pool.getConnection();
         let [result] = await check.query(
           "SELECT * FROM tbl_users WHERE userId =?",
-          id
+          userId
         );
 
         if (result.length === 0) {
@@ -28,7 +28,7 @@ const HomeLoginPage = () => {
         }
 
         let accessToken = jwt.sign(
-          { userId: result[0].id, nickName: result[0].nickName },
+          { userId: result[0].userId, nickName: result[0].nickName },
           process.env.JWT_SECRET,
           { expiresIn: "1h" }
         );
