@@ -8,7 +8,7 @@ const HomeLoginPage = () => {
   //     try {
   //       check = await pool.getConnection();
   //       let [result] = await check.query(
-  //         "SELECT * FROM tbl_users WHERE userId =?",
+  //         "SELECT * FROM tbl_users WHERE userId = ?",
   //         userId
   //       );
 
