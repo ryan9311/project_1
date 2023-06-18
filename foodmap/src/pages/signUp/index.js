@@ -10,7 +10,7 @@ const signupPage = () => {
   const handler = async (req, res) => {
     console.log(process.env.DB_HOST)
 
-    if (req.method === 'GET') {
+    if (req.method === 'POST') {
       let conn = null
       try {
         let sql = `
@@ -53,11 +53,13 @@ const signupPage = () => {
   const onJoinBtnClick = () => {
     // 입력창에 입력된 문자열 값
     const UserID = IdInputRef.current.value
+
     const UserPw = PWInputRef.current.value
     const UserNickName = NickInputRef.current.value
 
     // let check = false
     // 아이디 비밀번호 닉네임이 입력되어있지 않다면 에러메세지 보여주기
+
     if (!UserID) {
       setIDErrMsg('아이디는 필수 입력 값입니다')
       IdInputRef.current.focus()
@@ -67,6 +69,7 @@ const signupPage = () => {
 
     if (!UserPw) {
       setPwErrMsg('비밀번호는 필수 입력 값입니다')
+
       PWInputRef.current.focus()
     } else {
       setPwErrMsg('')
@@ -82,7 +85,7 @@ const signupPage = () => {
 
     if (UserID !== '' && UserPw !== '' && UserNickName !== '') {
       axios
-        .post('/api', {
+        .post('/', {
           userId: UserID,
           userPw: UserPw,
           nickName: UserNickName,
@@ -90,7 +93,7 @@ const signupPage = () => {
         .then((res) => {
           // console.log(res)
           // router.replace('/pages')
-          alert(`추가완료! 추가된아이디:${res.body}`)
+          alert(`추가완료! 추가된아이디:${res.data.UserID}`)
           router.replace('/')
         })
         .catch((err) => console.log(err))
