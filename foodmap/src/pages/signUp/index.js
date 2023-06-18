@@ -6,7 +6,6 @@ import { useRef, useState } from 'react'
 import axios from 'axios'
 
 const signupPage = () => {
-  // posts index.js에 작성
   const handler = async (req, res) => {
     console.log(process.env.DB_HOST)
 
