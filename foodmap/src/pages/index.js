@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 const HomeLoginPage = () => {
   const handler = async (req, res) => {
@@ -41,16 +42,32 @@ const HomeLoginPage = () => {
     }
   };
 
+  let [userId, setUserId] = useState("");
+  let [userPw, setUserPw] = useState("");
+  console.log(userId, userPw);
+
   return (
     <>
       <BodyContainer>
-        <Login>
-          <Logo></Logo>
-          <InputBox type="text" name="id" placeholder="ID를 입력해주세요" />
-          <InputBox type="password" name="pw" placeholder="PW를 입력해주세요" />
-          <LoginPageBtn onClick={() => {}}>로그인</LoginPageBtn>
-          <SignUp>SignUp</SignUp>
-        </Login>
+        <form onSubmit={handler}>
+          <Login>
+            <Logo></Logo>
+            <InputBox
+              onChange={(e) => setUserId(e.target.value)}
+              type="text"
+              name="id"
+              placeholder="ID를 입력해주세요"
+            />
+            <InputBox
+              onChange={(e) => setUserPw(e.target.value)}
+              type="password"
+              name="pw"
+              placeholder="PW를 입력해주세요"
+            />
+            <LoginPageBtn type="submit">로그인</LoginPageBtn>
+            <SignUp>SignUp</SignUp>
+          </Login>
+        </form>
       </BodyContainer>
     </>
   );
