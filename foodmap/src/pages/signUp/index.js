@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const signupPage = () => {
   const handler = async (req, res) => {
-    console.log(process.env.DB_HOST)
+    console.log(process.env)
 
     if (req.method === 'POST') {
       let conn = null
@@ -36,12 +36,21 @@ const signupPage = () => {
       }
     }
   }
-
   const router = useRouter()
+
+  const [Id, setId] = useState('')
+  const [Pwd, setPwd] = useState('')
+  const [NickName, setNickName] = useState('')
   // props로 전달해주기
+  // 오류메세지 상태 저장
   const [IDErrMsg, setIDErrMsg] = useState('')
   const [PwErrMsg, setPwErrMsg] = useState('')
   const [NickErrMsg, setNickErrMsg] = useState('')
+
+  const [isId, setIsId] = useState(false)
+  const [isPwd, setIsPwd] = useState(false)
+  const [isCheckPwd, setCheckPwd] = useState(false)
+  const [isNickname, setIsNickName] = useState(false)
 
   // props로 전달해주기
   const IdInputRef = useRef(null)
@@ -49,50 +58,83 @@ const signupPage = () => {
   const NickInputRef = useRef(null)
 
   // onJoinBtnClick props로 전달해주기
-  const onJoinBtnClick = () => {
+  const onJoinBtnClick = (e) => {
     // 입력창에 입력된 문자열 값
-    const UserID = IdInputRef.current.value
+    // const Id = IdInputRef.currentTarget.value
 
-    const UserPw = PWInputRef.current.value
-    const UserNickName = NickInputRef.current.value
+    // const Pwd = PWInputRef.currentTarget.value
+    // const NickName = NickInputRef.currentTarget.value
 
     // let check = false
     // 아이디 비밀번호 닉네임이 입력되어있지 않다면 에러메세지 보여주기
 
-    if (!UserID) {
-      setIDErrMsg('아이디는 필수 입력 값입니다')
-      IdInputRef.current.focus()
+    setIsId(e.currentTarget.value)
+    const idReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
+    if (!idReg.test(e.currentTarget.value)) {
+      setIDErrMsg('아이디 형식이 올바르지 않습니다')
+      setIsId(false)
+      // IdInputRef.current.focus()
     } else {
-      setIDErrMsg('')
+      alert('입력성공!')
+      setIDErrMsg('사용 가능한 아이디 입니다')
+      setIsId(true)
     }
 
-    if (!UserPw) {
-      setPwErrMsg('비밀번호는 필수 입력 값입니다')
-
-      PWInputRef.current.focus()
+    setIsPwd(e.currentTarget.value)
+    const pwdReg = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/
+    if (!pwdReg.test(e.currentTarget.value)) {
+      setPwErrMsg('비밀번호 형식이 올바르지 않습니다')
+      setIsPwd(false)
     } else {
-      setPwErrMsg('')
+      setPwErrMsg('안전한 비밀번호 입니다')
+      setIsPwd(true)
     }
 
-    if (!UserNickName) {
-      setNickErrMsg('닉네임은 필수 입력 값입니다')
-      NickInputRef.current.focus()
+    const PwdConfirm = e.currentTarget.value
+    setCheckPwd(e.currentTarget.value)
+    if (Pwd !== PwdConfirm) {
+      setCheckPwd(false)
+    } else {
+      setCheckPwd(true)
+    }
+
+    setNickName(e.currentTarget.value)
+    const NicknameReg = e.currentTarget.value
+    if (NicknameReg.lenght < 2 || NicknameReg.lenght > 5) {
+      setNickErrMsg('닉네임은 두글자 이상 다섯글자 이하로 입력해주세요')
+      setIsNickName(false)
     } else {
       setNickErrMsg('')
+      setIsNickName(true)
     }
     // 다 정상입력 되었다면 성공했다고 alert창 띄어주기
 
-    if (UserID !== '' && UserPw !== '' && UserNickName !== '') {
+    //  if (!isId && isPwd === true && isNickname === true) {
+    //    axios
+    //     .post('/', {
+    //        userId: isId,
+    //       userPw: isPwd,
+    //        nickName: isNickname,
+    //      })
+    //      .then((res) => {
+    //        console.log(res)
+    //        // router.replace('/pages')
+    //       //   alert(`추가완료! 추가된아이디:${res.data.Id}`)
+    //       //   router.replace('/')
+    //     })
+    //     .catch((err) => console.log(err))
+    //  }
+    if (isId !== '' && isPwd !== '' && isNickname !== '') {
       axios
         .post('/', {
-          userId: UserID,
-          userPw: UserPw,
-          nickName: UserNickName,
+          userId: Id,
+          userPw: Pwd,
+          nickName: NickName,
         })
         .then((res) => {
-          // console.log(res)
+          console.log('res : ', res)
           // router.replace('/pages')
-          alert(`추가완료! 추가된아이디:${res.data.UserID}`)
+          alert(`추가완료! 추가된아이디:${res.data.nickName}`)
           router.replace('/')
         })
         .catch((err) => console.log(err))
@@ -105,20 +147,35 @@ const signupPage = () => {
       </div>
       <div>
         <InputWrap>
-          <Input type="text" placeholder="ID를 입력해주세요" ref={IdInputRef} />
+          <Input
+            type="text"
+            placeholder="ID를 입력해주세요"
+            // ref={IdInputRef}
+            //  onChange={onIdChange}
+          />
         </InputWrap>
         <div>
           <Input
             type="text"
             placeholder="닉네임을 입력해주세요"
-            ref={NickInputRef}
+            // ref={NickInputRef}
+            //  onChange={onNickNameChange}
           />
         </div>
         <div>
-          <Input type="password" placeholder="비밀번호" ref={PWInputRef} />
+          <Input
+            type="password"
+            placeholder="비밀번호"
+            // ref={PWInputRef}
+            // onChange={onPwdChange}
+          />
         </div>
         <div>
-          <Input type="password" placeholder="비밀번호 확인" />
+          <Input
+            type="password"
+            placeholder="비밀번호 확인"
+            //    onChange={onchectPwdChange}
+          />
         </div>
         <Button onClick={onJoinBtnClick}>가입하기</Button>
       </div>
