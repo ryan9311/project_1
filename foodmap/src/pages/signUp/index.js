@@ -4,137 +4,112 @@ import { BodyContainer, Logo } from '..'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import axios from 'axios'
+import handler from '../api/users'
 
 const signupPage = () => {
-  const handler = async (req, res) => {
-    console.log(process.env)
-
-    if (req.method === 'POST') {
-      let conn = null
-      try {
-        let sql = `
-          INSERT INTO tbl_users
-          (userId, userPw, nickName)
-          VALUES
-          (?, ?, ?)
-        `
-        conn = await pool.getConnection()
-        conn.query(sql, [req.body.userId, req.body.userPw, req.body.nickName])
-        // console.log(result.insertId)
-        // let [result2] = await conn.query(
-        //   'SELECT * FROM tbl_users WHERE id = ?',
-        //   result.insertId,
-        // )
-        // console.log(result2[0])
-        res.status(201).json({ message: 'POST 요청에 대한 응답' })
-        return
-      } catch (err) {
-        res.status(500).json({ message: '서버오류발생' })
-        return
-      } finally {
-        if (conn !== null) conn.release()
-      }
-    }
-  }
+  // // posts index.js에 작성
   const router = useRouter()
 
+  // 아이디,비밀번호, 닉네임 확인
   const [Id, setId] = useState('')
   const [Pwd, setPwd] = useState('')
+  const [passwordCheck, setPasswordCheck] = useState('')
   const [NickName, setNickName] = useState('')
-  // props로 전달해주기
+
   // 오류메세지 상태 저장
   const [IDErrMsg, setIDErrMsg] = useState('')
   const [PwErrMsg, setPwErrMsg] = useState('')
+  const [PwCheckErrMsg, setPwCheckErrMsg] = useState('')
   const [NickErrMsg, setNickErrMsg] = useState('')
 
+  // 유효성 검사
   const [isId, setIsId] = useState(false)
   const [isPwd, setIsPwd] = useState(false)
-  const [isCheckPwd, setCheckPwd] = useState(false)
+  const [isCheckPwd, setIsCheckPwd] = useState(false)
   const [isNickname, setIsNickName] = useState(false)
 
-  // props로 전달해주기
   const IdInputRef = useRef(null)
   const PWInputRef = useRef(null)
+  const PwCheckInputRef = useRef(null)
   const NickInputRef = useRef(null)
 
-  // onJoinBtnClick props로 전달해주기
-  const onJoinBtnClick = (e) => {
-    // 입력창에 입력된 문자열 값
-    // const Id = IdInputRef.currentTarget.value
+  let check = false
 
-    // const Pwd = PWInputRef.currentTarget.value
-    // const NickName = NickInputRef.currentTarget.value
-
-    // let check = false
-    // 아이디 비밀번호 닉네임이 입력되어있지 않다면 에러메세지 보여주기
-
-    setIsId(e.currentTarget.value)
-    const idReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
-    if (!idReg.test(e.currentTarget.value)) {
+  const onIdChange = (e) => {
+    const idReg = /^[a-zA-Z0-9]{6,16}$/
+    const IdCurrent = e.currentTarget.value
+    setId(IdCurrent)
+    if (!idReg.test(IdCurrent)) {
+      //  alert('재입력')
       setIDErrMsg('아이디 형식이 올바르지 않습니다')
       setIsId(false)
-      // IdInputRef.current.focus()
+      IdInputRef.current.focus()
+      check = true
     } else {
-      alert('입력성공!')
+      // alert('성공!')
       setIDErrMsg('사용 가능한 아이디 입니다')
       setIsId(true)
     }
+  }
+  console.log(setIsId)
 
-    setIsPwd(e.currentTarget.value)
+  const onPwdChange = (e) => {
     const pwdReg = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/
-    if (!pwdReg.test(e.currentTarget.value)) {
+    const PwCurrent = e.currentTarget.value
+    setPwd(PwCurrent)
+    if (!pwdReg.test(PwCurrent)) {
       setPwErrMsg('비밀번호 형식이 올바르지 않습니다')
       setIsPwd(false)
+      PWInputRef.current.focus()
+      check = true
     } else {
       setPwErrMsg('안전한 비밀번호 입니다')
       setIsPwd(true)
     }
+  }
 
+  const onchectPwdChange = (e) => {
     const PwdConfirm = e.currentTarget.value
-    setCheckPwd(e.currentTarget.value)
-    if (Pwd !== PwdConfirm) {
-      setCheckPwd(false)
+    setIsCheckPwd(PwdConfirm)
+    if (Pwd === PwdConfirm) {
+      setPwCheckErrMsg('비밀번호를 똑같이 입력했어요!')
+      setIsCheckPwd(true)
+      PwCheckInputRef.current.focus()
+      check = true
     } else {
-      setCheckPwd(true)
+      setPwCheckErrMsg('비밀번호를 다시 입력해주세요')
+      setIsCheckPwd(false)
     }
+  }
 
-    setNickName(e.currentTarget.value)
+  const onNickNameChange = (e) => {
     const NicknameReg = e.currentTarget.value
-    if (NicknameReg.lenght < 2 || NicknameReg.lenght > 5) {
+    setNickName(NicknameReg)
+    if (NicknameReg.lenght < 2 || NicknameReg > 5) {
       setNickErrMsg('닉네임은 두글자 이상 다섯글자 이하로 입력해주세요')
       setIsNickName(false)
+      NickInputRef.current.focus()
+      check = true
     } else {
       setNickErrMsg('')
       setIsNickName(true)
     }
-    // 다 정상입력 되었다면 성공했다고 alert창 띄어주기
+  }
 
-    //  if (!isId && isPwd === true && isNickname === true) {
-    //    axios
-    //     .post('/', {
-    //        userId: isId,
-    //       userPw: isPwd,
-    //        nickName: isNickname,
-    //      })
-    //      .then((res) => {
-    //        console.log(res)
-    //        // router.replace('/pages')
-    //       //   alert(`추가완료! 추가된아이디:${res.data.Id}`)
-    //       //   router.replace('/')
-    //     })
-    //     .catch((err) => console.log(err))
-    //  }
-    if (isId !== '' && isPwd !== '' && isNickname !== '') {
+
+  // onJoinBtnClick props로 전달해주기
+  const onJoinBtnClick = () => {
+    if (!check) {
       axios
-        .post('/', {
+        .post('/api/users', {
           userId: Id,
           userPw: Pwd,
           nickName: NickName,
         })
         .then((res) => {
-          console.log('res : ', res)
+          //  console.log('res.data : ', res.data)
           // router.replace('/pages')
-          alert(`추가완료! 추가된아이디:${res.data.nickName}`)
+          alert('회원가입 성공!')
           router.replace('/')
         })
         .catch((err) => console.log(err))
@@ -145,40 +120,50 @@ const signupPage = () => {
       <div>
         <Logo></Logo>
       </div>
-      <div>
-        <InputWrap>
-          <Input
-            type="text"
-            placeholder="ID를 입력해주세요"
-            // ref={IdInputRef}
-            //  onChange={onIdChange}
-          />
-        </InputWrap>
+      <form onSubmit={handler}>
         <div>
-          <Input
-            type="text"
-            placeholder="닉네임을 입력해주세요"
-            // ref={NickInputRef}
-            //  onChange={onNickNameChange}
-          />
+          <InputWrap>
+            <Input
+              name="ID"
+              type="text"
+              placeholder="ID를 입력해주세요"
+              ref={IdInputRef}
+              onChange={onIdChange}
+            />
+            <p>{IDErrMsg}</p>
+          </InputWrap>
+          <InputWrap>
+            <Input
+              name="Nickname"
+              type="text"
+              placeholder="닉네임을 입력해주세요"
+              ref={NickInputRef}
+              onChange={onNickNameChange}
+            />
+            <p>{NickErrMsg}</p>
+          </InputWrap>
+          <InputWrap>
+            <Input
+              name="Password"
+              type="password"
+              placeholder="비밀번호"
+              ref={PWInputRef}
+              onChange={onPwdChange}
+            />
+            <p>{PwErrMsg}</p>
+          </InputWrap>
+          <InputWrap>
+            <Input
+              type="password"
+              placeholder="비밀번호 확인"
+              ref={PwCheckInputRef}
+              onChange={onchectPwdChange}
+            />
+            <p>{PwCheckErrMsg}</p>
+          </InputWrap>
+          <Button onClick={onJoinBtnClick}>가입하기</Button>
         </div>
-        <div>
-          <Input
-            type="password"
-            placeholder="비밀번호"
-            // ref={PWInputRef}
-            // onChange={onPwdChange}
-          />
-        </div>
-        <div>
-          <Input
-            type="password"
-            placeholder="비밀번호 확인"
-            //    onChange={onchectPwdChange}
-          />
-        </div>
-        <Button onClick={onJoinBtnClick}>가입하기</Button>
-      </div>
+      </form>
     </BodyContainer>
   )
 }
