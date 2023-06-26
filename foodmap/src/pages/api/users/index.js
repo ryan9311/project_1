@@ -43,6 +43,6 @@ const handler = async (req, res) => {
     return
   }
 
-  // res.status(405).json({ message: '허용되지 않은 메소드' })
+  res.status(405).json({ message: '허용되지 않은 메소드' })
 }
 export default handler

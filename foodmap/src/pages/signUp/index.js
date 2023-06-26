@@ -96,24 +96,21 @@ const signupPage = () => {
     }
   }
 
-
   // onJoinBtnClick props로 전달해주기
   const onJoinBtnClick = () => {
-    if (!check) {
-      axios
-        .post('/api/users', {
-          userId: Id,
-          userPw: Pwd,
-          nickName: NickName,
-        })
-        .then((res) => {
-          //  console.log('res.data : ', res.data)
-          // router.replace('/pages')
-          alert('회원가입 성공!')
-          router.replace('/')
-        })
-        .catch((err) => console.log(err))
-    }
+    axios
+      .post('/api/users', {
+        userId: Id,
+        userPw: Pwd,
+        nickName: NickName,
+      })
+      .then((res) => {
+        console.log('res.data : ', res.data)
+        // router.replace('/pages')
+        alert('회원가입 성공!')
+        router.replace('/')
+      })
+      .catch((err) => console.log(err))
   }
   return (
     <BodyContainer>
