@@ -4,9 +4,41 @@ import { BodyContainer, Logo } from '..'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import axios from 'axios'
-import handler from '../api/users'
+import pool from '../../../db'
+
+// import pool from '../../../db'
 
 const signupPage = () => {
+  const handler = async (req, res) => {
+    console.log(process.env.DB_HOST)
+
+    if (req.method === 'POST') {
+      let conn = null
+      try {
+        let sql = `
+          INSERT INTO tbl_users
+          (userId, userPw, nickName)
+          VALUES
+          (?, ?, ?)
+        `
+        conn = await pool.getConnection()
+        conn.query(sql, [req.body.userId, req.body.userPw, req.body.nickName])
+        // console.log(result.insertId)
+        // let [result2] = await conn.query(
+        //   'SELECT * FROM tbl_users WHERE id = ?',
+        //   result.insertId,
+        // )
+        // console.log(result2[0])
+        res.status(201).json({ message: 'POST 요청에 대한 응답' })
+        return
+      } catch (err) {
+        res.status(500).json({ message: '서버오류발생' })
+        return
+      } finally {
+        if (conn !== null) conn.release()
+      }
+    }
+  }
   // // posts index.js에 작성
   const router = useRouter()
 
@@ -99,7 +131,7 @@ const signupPage = () => {
   // onJoinBtnClick props로 전달해주기
   const onJoinBtnClick = () => {
     axios
-      .post('/api/users', {
+      .post('/', {
         userId: Id,
         userPw: Pwd,
         nickName: NickName,

@@ -1,4 +1,4 @@
-const { createPool } = require('mysql2')
+import { createPool } from 'mysql2/promise'
 
 const pool = createPool({
   host: process.env.DB_HOST,
