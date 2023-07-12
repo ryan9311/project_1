@@ -1,4 +1,4 @@
-const { createPool } = require('mysql2')
+const { createPool } = require("mysql2");
 
 const pool = createPool({
   host: process.env.DB_HOST,
@@ -6,6 +6,6 @@ const pool = createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   port: process.env.DB_PORT,
-})
+});
 
-export default pool
+export default pool;
