@@ -2,19 +2,18 @@ import styled from '@emotion/styled'
 import Image from 'next/image'
 import { BodyContainer, Logo } from '..'
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
-import handler from '../api/users'
+import handler from '../api/posts'
 
 const signupPage = () => {
-  // // posts index.js에 작성
   const router = useRouter()
 
   // 아이디,비밀번호, 닉네임 확인
-  const [Id, setId] = useState('')
-  const [Pwd, setPwd] = useState('')
+  const [userId, setUserId] = useState('')
+  const [userPw, setUserPw] = useState('')
   const [passwordCheck, setPasswordCheck] = useState('')
-  const [NickName, setNickName] = useState('')
+  const [nickName, setNickName] = useState('')
 
   // 오류메세지 상태 저장
   const [IDErrMsg, setIDErrMsg] = useState('')
@@ -38,7 +37,7 @@ const signupPage = () => {
   const onIdChange = (e) => {
     const idReg = /^[a-zA-Z0-9]{6,16}$/
     const IdCurrent = e.currentTarget.value
-    setId(IdCurrent)
+    setUserId(IdCurrent)
     if (!idReg.test(IdCurrent)) {
       //  alert('재입력')
       setIDErrMsg('아이디 형식이 올바르지 않습니다')
@@ -56,7 +55,7 @@ const signupPage = () => {
   const onPwdChange = (e) => {
     const pwdReg = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/
     const PwCurrent = e.currentTarget.value
-    setPwd(PwCurrent)
+    setUserPw(PwCurrent)
     if (!pwdReg.test(PwCurrent)) {
       setPwErrMsg('비밀번호 형식이 올바르지 않습니다')
       setIsPwd(false)
@@ -71,7 +70,7 @@ const signupPage = () => {
   const onchectPwdChange = (e) => {
     const PwdConfirm = e.currentTarget.value
     setIsCheckPwd(PwdConfirm)
-    if (Pwd === PwdConfirm) {
+    if (userPw === PwdConfirm) {
       setPwCheckErrMsg('비밀번호를 똑같이 입력했어요!')
       setIsCheckPwd(true)
       PwCheckInputRef.current.focus()
@@ -85,7 +84,7 @@ const signupPage = () => {
   const onNickNameChange = (e) => {
     const NicknameReg = e.currentTarget.value
     setNickName(NicknameReg)
-    if (NicknameReg.lenght < 2 || NicknameReg > 5) {
+    if (NicknameReg.lenght < 2 || NicknameReg >= 5) {
       setNickErrMsg('닉네임은 두글자 이상 다섯글자 이하로 입력해주세요')
       setIsNickName(false)
       NickInputRef.current.focus()
@@ -99,18 +98,18 @@ const signupPage = () => {
   // onJoinBtnClick props로 전달해주기
   const onJoinBtnClick = () => {
     axios
-      .post('/api/users', {
-        userId: Id,
-        userPw: Pwd,
-        nickName: NickName,
+      .post('api/posts', {
+        userId: IdInputRef.current.value,
+        userPw: PWInputRef.current.value,
+        nickName: NickInputRef.current.value,
       })
       .then((res) => {
-        console.log('res.data : ', res.data)
+        console.log('res.data : ', res.body)
         // router.replace('/pages')
         alert('회원가입 성공!')
-        router.replace('/')
+        router.replace('../')
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err, '실패'))
   }
   return (
     <BodyContainer>
